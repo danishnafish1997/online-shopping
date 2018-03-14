@@ -4,7 +4,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/vendor" />
-<spring:url var="cs" value="/resources/css" />
+<spring:url var="hello" value="/resources/css" />
 <spring:url var="js" value="/resources/vendor" />
 <spring:url var="images" value="/resources/images" />
 
@@ -20,42 +20,53 @@
     <meta name="author" content="">
 
     <title>OnlineShopping -${title}</title>
+    <script>
+    window.menu='${ title}'
+    </script>
 
     <!-- Bootstrap core CSS -->
     <link href="${css }/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="${cs }/shop-homepage.css" rel="stylesheet">
+    <link href="${css}/bootstrap/css/shop-homepage.css" rel="stylesheet">
 
   </head>
 
-  <body>
+  <body >
+  
+  <div class="wrapper">
 
-    <!-- Navigation -->
-   <%@include file="./shared/nav.jsp" %>
+     <!-- Navigation -->
+     <%@include file="./shared/nav.jsp" %>
+   
+     <div class="content">
 
-    <!-- Page Content -->
-    <c:if test="${userClickHome == true }">
+       <!-- Page Content -->
+       <c:if test="${userClickHome == true }">
 				<%@include file="home.jsp"%>
-			</c:if>
+		</c:if>
 			
-    <!-- About Us -->
-    <c:if test="${userClickAbout == true }">
+       <!-- About Us -->
+       <c:if test="${userClickAbout == true }">
 				<%@include file="About.jsp"%>
-			</c:if>
+	   </c:if>
 			
 			 <!-- Contact Us -->
-    <c:if test="${userClickContact == true }">
+       <c:if test="${userClickContact == true }">
 				<%@include file="Contact.jsp"%>
-			</c:if>
+	   </c:if>
 			
-    <!-- Footer -->
-    <%@include file="./shared/footer.jsp" %>
+	 </div>
+			
+      <!-- Footer -->
+      <%@include file="./shared/footer.jsp" %>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="${js }/jquery/jquery.min.js"></script>
-    <script src="${css }/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+      <!-- Bootstrap core JavaScript -->
+      <script src="${js }/jquery/jquery.min.js"></script>
+      <script src="${css }/bootstrap/js/bootstrap.bundle.min.js"></script>  
+      <script src="${js }/jquery/myapp.js"></script>
+    
+    </div>
   </body>
 
 </html>
